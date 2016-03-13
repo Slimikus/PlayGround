@@ -45,6 +45,16 @@ for musicName in myMusicStyles {
     print("Я люблю \(musicName)")
 }
 
+// перебор словоря через кортежи
+var countryAndBlocks = ["Россия": "ЕАЭС", "США": "НАТО", "Франция": "ЕС"]
+for (countryName, blockName) in countryAndBlocks {
+    print("\(countryName) вступила в \(blockName)")
+}
+
+for (countryName, _) in countryAndBlocks {
+    print("Страна - \(countryName)")
+}
+
 
 
 
