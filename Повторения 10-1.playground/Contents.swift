@@ -61,6 +61,11 @@ for (index, musicName) in myMusicStyles.enumerate() {
     print("\(index+1). Я люблю \(musicName)")
 }
 
+// свойство characters
+let myName = "Troll"
+for oneChar in myName.characters {
+    print(oneChar)
+}
 
 
 
