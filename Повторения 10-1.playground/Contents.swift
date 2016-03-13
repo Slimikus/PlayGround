@@ -55,6 +55,12 @@ for (countryName, _) in countryAndBlocks {
     print("Страна - \(countryName)")
 }
 
+// использование enumirate()
+
+for (index, musicName) in myMusicStyles.enumerate() {
+    print("\(index+1). Я люблю \(musicName)")
+}
+
 
 
 
