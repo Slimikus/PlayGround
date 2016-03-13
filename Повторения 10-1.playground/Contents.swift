@@ -21,4 +21,19 @@ for var i=0; i < mySportsArray.count; i++ {
     print(mySports[mySportsArray[i]]!)
 }
 
+// for - in
+
+var totalSum = 0
+for i in 1...10 {
+    totalSum += i
+}
+totalSum
+
+var totalNum = 0
+var i = 0
+for var i in 1...10 {
+    totalNum += i
+}
+totalNum
+i
 
