@@ -66,6 +66,17 @@ let myName = "Troll"
 for oneChar in myName.characters {
     print(oneChar)
 }
+// Вложенные коллекции
+
+// Словарь с результатами игр
+var resultsOfGame = ["Red Wings":["2:1", "2:3"], "Capitals":["3:6", "5:5"], "Penguins":["3:3", "1:2"]]
+// Обработка словаря
+for (teamName, results) in resultsOfGame {
+    // Обработка массива результатов
+    for oneResult in results {
+        print("Игра с \(teamName) - \(oneResult)")
+    }
+}
 
 
 
