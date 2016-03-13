@@ -37,3 +37,15 @@ for var i in 1...10 {
 totalNum
 i
 
+
+// перебор коллекций
+
+var myMusicStyles = ["Rock", "Jazz", "Pop"]
+for musicName in myMusicStyles {
+    print("Я люблю \(musicName)")
+}
+
+
+
+
+
