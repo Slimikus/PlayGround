@@ -50,6 +50,21 @@ mainLoop: for i in 1...5 {
     }
 }
 
+// Задание
 
+print("Задание №1")
+var dnev: [String: [String:UInt]] = ["Иванов": ["21.02.16": 4, "13.03.16": 5], "Петров": ["21.02.16": 2, "13.03.16": 4], "Сидоров": ["21.02.16": 5, "13.03.16": 3]]
+var sredBal: Double = 0
+var sred: Double = 0
+for (fam, allOcenki) in dnev {
+    for (data, bal) in allOcenki {
+        sredBal += Double(bal)
+    }
+    sredBal = sredBal/Double(allOcenki.count)
+    sred += sredBal
+    print("Средний бал студента \(fam) равен ", sredBal)
+    sredBal = 0
+}
+sred = sred/Double(dnev.count)
 
-
+print("Средний бал группы равен \(sred)")
