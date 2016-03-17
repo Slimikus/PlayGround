@@ -28,6 +28,18 @@ for i in 1...10 {
     }
 }
 
+// Оператор Break
+
+import Foundation
+for i in 1...20 {
+    var randNum = Int(arc4random_uniform(10))
+    if randNum == 5 {
+        print("Итерация №\(i)")
+        break
+    }
+}
+
+
 
 
 
