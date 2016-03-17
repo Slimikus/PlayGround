@@ -68,3 +68,17 @@ for (fam, allOcenki) in dnev {
 sred = sred/Double(dnev.count)
 
 print("Средний бал группы равен \(sred)")
+
+print("Задание №2")
+
+typealias Chessman = [String:(alpha:Character,num:Int)?]
+var Chessmans: Chessman = ["Белый король":("B",3), "Чёрный ферзь":("E", 6), "Белая ладья":nil]
+
+for (chass, koor) in Chessmans {
+    if koor != nil {
+        print("Координаты фигуры \(chass): \(koor!)")
+    } else {
+        print("Ваша фигура \(chass) сбита")
+    }
+   
+}
