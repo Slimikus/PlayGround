@@ -15,4 +15,28 @@ func printMessage3() {
 }
 printMessage3()
 
+// Входные параметры и возвращаемое значение
+
+func printCodeMessage(requestCode: Int) -> () {
+    print("Код ответа - \(requestCode)")
+}
+printCodeMessage(200)
+printCodeMessage(404)
+
+func sum1(a: Int, b: Int, c: Int) -> () {
+    print("Сумма 1 \(a+b+c)")
+}
+sum1(10, b: 51, c: 92)
+
+func sum2(a: Int, _ b: Int, c: Int) -> () {
+    print("Сумма 2 \(a+b+c)")
+}
+sum2(15, 12, c: 9)
+
+func generateString(code: Int, var _ text: String) -> String {
+    text += String(code)
+    return text
+}
+generateString(200, "Код: ")
+
 
