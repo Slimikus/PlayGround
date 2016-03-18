@@ -71,6 +71,26 @@ func printRequestString(codes: Int...) -> () {
 printRequestString(600, 800, 301)
 printRequestString(101, 200)
 
+// Кортеж в качестве возвращаемого значения
+
+func getCodeDescription(code: Int) -> (code: Int, description: String) {
+    let descriptoin: String
+    switch code {
+    case 1...100:
+        descriptoin = "Error"
+    case 101...200:
+        descriptoin = "Correct"
+    default:
+        descriptoin = "Unknown"
+    }
+    return (code, descriptoin)
+}
+print(getCodeDescription(150))
+
+let request = getCodeDescription(48)
+request.description
+request.code
+
 
 
 
