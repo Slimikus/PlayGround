@@ -39,4 +39,32 @@ func generateString(code: Int, var _ text: String) -> String {
 }
 generateString(200, "Код: ")
 
+// Cквозные параметры
+
+func changeValues(inout a: Int, inout _ b: Int) -> () {
+    let tmp = a
+    a = b
+    b = tmp
+}
+var a = 150, b = 45
+changeValues(&a, &b)
+a
+b
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
