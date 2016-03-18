@@ -126,6 +126,34 @@ func sumWallet2(banknotsArray wallet: [Int]? = nil) -> Int? {
 }
 sumWallet2(banknotsArray: [50, 100, 100, 500, 50, 1000, 5000, 50, 100])
 
+// Функция в качестве аргумента
+
+import Foundation
+// функция генерации случайного массива банкнот
+func generateWallet(walletLenght: Int) -> [Int] {
+    // существующие типы банкнот
+    let typesOfBanknotes = [100, 500, 1000, 5000, 10_000, 20_000, 50_000, 100_000, 200_000]
+    // массив банкнот
+    var wallet: [Int] = []
+    // цикл генерации массива случайных банкнот
+    for _ in 1...walletLenght {
+        let randomIndex = Int( arc4random_uniform(UInt32( typesOfBanknotes.count-1 )) )
+        wallet.append( typesOfBanknotes[randomIndex] )
+    }
+    return wallet
+}
+// функция подсчёта денег в кошельке
+func sumWallet3(banknotsFunction wallet: (Int)->([Int])) -> Int? {
+    // вызов переданной функции
+    let myWalletArray = wallet( Int(arc4random_uniform(10)))
+    var sum: Int = 0
+    for oneBanknote in myWalletArray {
+        sum += oneBanknote
+    }
+    return sum
+}
+// передача функции в функцию
+sumWallet3(banknotsFunction: generateWallet)
 
 
 
