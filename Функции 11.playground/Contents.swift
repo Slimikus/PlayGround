@@ -112,6 +112,20 @@ wallet.append(1000)
 sumWallet(wallet)
 sumWallet()
 
+// Внешние имена аргументов
+
+func sumWallet2(banknotsArray wallet: [Int]? = nil) -> Int? {
+    var sum = 0
+    if wallet == nil {
+        return nil
+    }
+    for oneBanknote in wallet! {
+        sum += oneBanknote
+    }
+    return sum
+}
+sumWallet2(banknotsArray: [50, 100, 100, 500, 50, 1000, 5000, 50, 100])
+
 
 
 
