@@ -93,9 +93,12 @@ request.code
 
 // Реальный пример
 
-func sumWallet(wallet: [Int]) -> Int {
+func sumWallet(wallet: [Int]? = nil) -> Int? {
     var sum = 0
-    for oneBanknote in wallet {
+    if wallet == nil {
+        return nil
+    }
+    for oneBanknote in wallet! {
         sum += oneBanknote
     }
     return sum
@@ -107,6 +110,8 @@ sumWallet(wallet)
 // добавление ещё одной купюры
 wallet.append(1000)
 sumWallet(wallet)
+sumWallet()
+
 
 
 
