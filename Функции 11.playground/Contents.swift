@@ -91,6 +91,23 @@ let request = getCodeDescription(48)
 request.description
 request.code
 
+// Реальный пример
+
+func sumWallet(wallet: [Int]) -> Int {
+    var sum = 0
+    for oneBanknote in wallet {
+        sum += oneBanknote
+    }
+    return sum
+}
+// кошелёк с купюрами
+var wallet = [50, 100, 100, 500, 50, 1000, 5000, 50, 100]
+// подсчётвсех купюр
+sumWallet(wallet)
+// добавление ещё одной купюры
+wallet.append(1000)
+sumWallet(wallet)
+
 
 
 
