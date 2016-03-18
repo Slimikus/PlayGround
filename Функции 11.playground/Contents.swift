@@ -33,11 +33,11 @@ func sum2(a: Int, _ b: Int, c: Int) -> () {
 }
 sum2(15, 12, c: 9)
 
-func generateString(code: Int, var _ text: String) -> String {
+func generateString1(code: Int, var _ text: String) -> String {
     text += String(code)
     return text
 }
-generateString(200, "Код: ")
+generateString1(200, "Код: ")
 
 // Cквозные параметры
 
@@ -51,8 +51,13 @@ changeValues(&a, &b)
 a
 b
 
+// Функция в качестве значения аргумента
 
-
+func generateString2(code: Int, message: String) -> String {
+    let returnMessage = "Получено соощение ''\(message)'' с кодом \(code)"
+    return returnMessage
+}
+print(generateString2(200, message: "Сервер не доступен"))
 
 
 
