@@ -59,6 +59,19 @@ func generateString2(code: Int, message: String) -> String {
 }
 print(generateString2(200, message: "Сервер не доступен"))
 
+// Входной параметр с переменным числом агрументов
+
+func printRequestString(codes: Int...) -> () {
+    var codesString = ""
+    for oneCode in codes {
+        codesString += String(oneCode) + " "
+    }
+    print("Получены ответы - \(codesString)")
+}
+printRequestString(600, 800, 301)
+printRequestString(101, 200)
+
+
 
 
 
