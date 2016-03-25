@@ -167,10 +167,69 @@ func returnPrintTextFunction() -> () -> (String) {
 }
 let newFunctionInLet = returnPrintTextFunction()
 newFunctionInLet()
-printText()
 
+// 11.3 Тело функции как значение
 
+//безымянная функция в качестве значения
+let functionInLet = { return true }
+functionInLet()
 
+// 11.4 Вложенные функции
+
+func oneStep(var coordinates: (Int, Int), stepType: String) -> (Int, Int) {
+    func up(inout coords: (Int, Int)) -> (Int, Int) {
+        return (coords.0+1, coords.1)
+    }
+    func right(inout coords: (Int, Int)) -> (Int, Int) {
+        return (coords.0, coords.1+1)
+    }
+    func down(inout coords: (Int, Int)) -> (Int, Int) {
+        return (coords.0-1, coords.1)
+    }
+    func left(inout coords: (Int, Int)) -> (Int, Int) {
+        return (coords.0, coords.1-1)
+    }
+    switch stepType {
+        case "up":
+        return up(&coordinates)
+        case "right":
+        return right(&coordinates)
+        case "down":
+        return down(&coordinates)
+        case "left":
+        return left(&coordinates)
+    default:
+        return (0, 0)
+    }
+}
+var coordinates = (10, -5)
+coordinates = oneStep(coordinates, stepType: "up")
+oneStep(coordinates, stepType: "right")
+
+// 11.5 Перезагрузка функций
+
+func say(what: String) {}
+func say(what: Int) {}
+
+func cry() -> String {
+    return "one"
+}
+func cry() -> Int {
+    return 1
+}
+let resultString: String = cry()
+let resultInt = cry() + 100
+
+// 11.6 Рекурсивный вызов функций
+
+//func countdown(firstNum num: Int) {
+//    print(num)
+//    if num > 0 {
+//        // рекурсивный вызов функции
+//        countdown(num -1)
+//    }
+//}
+//countdown(20)
 
 
 
