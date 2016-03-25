@@ -155,7 +155,7 @@ func sumWallet3(banknotsFunction wallet: (Int)->([Int])) -> Int? {
 // передача функции в функцию
 sumWallet3(banknotsFunction: generateWallet)
 
-// Функция в качестве возвращаемого значения
+// Функция в качестве возвращаемого параметра
 
 //функция вывода текста
 func printText() -> (String) {
