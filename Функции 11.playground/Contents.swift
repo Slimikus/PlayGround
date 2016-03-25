@@ -155,7 +155,11 @@ func sumWallet3(banknotsFunction wallet: (Int)->([Int])) -> Int? {
 // передача функции в функцию
 sumWallet3(banknotsFunction: generateWallet)
 
+<<<<<<< HEAD
+// Функция в качестве возвращаемого значения
+=======
 // Функция в качестве возвращаемого параметра
+>>>>>>> master
 
 //функция вывода текста
 func printText() -> (String) {
@@ -167,6 +171,7 @@ func returnPrintTextFunction() -> () -> (String) {
 }
 let newFunctionInLet = returnPrintTextFunction()
 newFunctionInLet()
+<<<<<<< HEAD
 
 // 11.3 Тело функции как значение
 
@@ -217,7 +222,6 @@ func cry() -> String {
 func cry() -> Int {
     return 1
 }
-
 let resultString: String = cry()
 let resultInt = cry() + 100
 
