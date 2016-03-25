@@ -206,7 +206,20 @@ var coordinates = (10, -5)
 coordinates = oneStep(coordinates, stepType: "up")
 oneStep(coordinates, stepType: "right")
 
+// 11.5 Перезагрузка функций
 
+func say(what: String) {}
+func say(what: Int) {}
+
+func cry() -> String {
+    return "one"
+}
+func cry() -> Int {
+    return 1
+}
+
+let resultString: String = cry()
+let resultInt = cry() + 100
 
 
 
