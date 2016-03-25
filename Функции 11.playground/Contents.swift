@@ -168,6 +168,14 @@ func returnPrintTextFunction() -> () -> (String) {
 let newFunctionInLet = returnPrintTextFunction()
 newFunctionInLet()
 
+// 11.3 Тело функции как значение
+
+//безымянная функция в качестве значения
+let functionInLet = { return true }
+functionInLet()
+
+
+
 
 
 
