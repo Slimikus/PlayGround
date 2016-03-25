@@ -221,7 +221,16 @@ func cry() -> Int {
 let resultString: String = cry()
 let resultInt = cry() + 100
 
+// 11.6 Рекурсивный вызов функций
 
+//func countdown(firstNum num: Int) {
+//    print(num)
+//    if num > 0 {
+//        // рекурсивный вызов функции
+//        countdown(num -1)
+//    }
+//}
+//countdown(20)
 
 
 
