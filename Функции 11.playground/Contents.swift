@@ -231,6 +231,8 @@ let resultInt = cry() + 100
 //}
 //countdown(20)
 
+//Задание №1
+print("Задание №1")
 
 
 
