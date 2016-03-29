@@ -124,11 +124,13 @@ b = 4
 closureSum()
 closureSum2()
 
+// 12.7 Метод сортировки массивов
 
+var array = [1, 44, 81, 4, 277, 50, 101, 51, 8]
+array.sort({ (first: Int, second: Int) -> Bool in
+    return first < second
+})
 
-
-
-
-
-
-
+var sortArray = array.sort({
+    $0 > $1})
+var sorrArray2 = array.sort(>)
