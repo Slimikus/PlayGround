@@ -91,6 +91,18 @@ handle(wallet)
         return false
 }
 
+// 12.5 Переменные-замыкания
+
+let closure: () -> () = {
+    print("Замыкающее выражение")
+}
+closure()
+
+var sum: (numOne: Int, numTwo: Int) -> Int = {
+    return $0 + $1
+}
+sum(numOne: 10, numTwo: 34)
+
 
 
 
