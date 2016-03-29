@@ -61,6 +61,12 @@ handle(wallet, closure: {banknot in
 handle(wallet, closure: {banknot in
     return banknot == 100})
 
+// 12.3 Неявное возвращение значения
+
+handle(wallet,
+    closure: {banknot in banknot >= 1000})
+handle(wallet,
+    closure: {banknot in banknot == 100})
 
 
 
