@@ -247,14 +247,27 @@ func chessAnalizer(chessmans: Chessman) {
     }
 }
 chessAnalizer(chessmans)
+chessmans.count
 
 //Задание №2
 print("Задание №2")
+
 func chessEdit(inout chessmans: Chessman, _ newChess: String, _ newKoor:(alpha: Character, num: Int)?) {
-    chessmans.updateValue(newKoor, forKey: newChess)
-    print(chessmans)
+    for (chass, _) in chessmans {
+        //проверка на существование такой фигуры
+        if newChess == chass {
+            // если есть, то меняем координаты на новые
+            chessmans[chass] = newKoor
+        } else {
+            //если нет, то добавляем новую фигуру
+            chessmans.updateValue(newKoor, forKey: newChess)
+        }
+    }
 }
-chessEdit(&chessmans, "Чёрный король", ("C", 5))
+chessEdit(&chessmans, "Чёрный конь", ("C", 5))
+print("Новый соварь:\(chessmans)")
+
+
 
 
 
