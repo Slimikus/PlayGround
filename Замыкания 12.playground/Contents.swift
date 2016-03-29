@@ -68,8 +68,28 @@ handle(wallet,
 handle(wallet,
     closure: {banknot in banknot == 100})
 
+// 12.4 Сокращённые имена параметров
 
+handle(wallet,
+    closure: {$0 >= 1000})
+handle(wallet,
+    closure: {$0 == 100})
 
+handle(wallet)
+    {$0 >= 1000}
+handle(wallet)
+    {$0 == 100}
+
+let successBanknot = [100, 500]
+handle(wallet)
+    {banknot in
+        for number in successBanknot {
+            if number == banknot {
+                return true
+            }
+        }
+        return false
+}
 
 
 
