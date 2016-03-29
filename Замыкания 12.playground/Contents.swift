@@ -46,6 +46,20 @@ func compareMore1000(banknot:Int) -> Bool {
 handle(wallet, closure: compare100)
 handle(wallet, closure: compareMore1000)
 
+// 12.2 Замыкающие выражения
+
+//отбор купюр выше 1000 рублей
+handle(wallet, closure: {(banknot: Int) -> Bool in
+    return banknot >= 1000})
+//отбор купюр в 100 рублей
+handle(wallet, closure: {(banknot: Int) -> Bool in
+    return banknot == 100})
+
+//оптимизация
+handle(wallet, closure: {banknot in
+    return banknot >= 1000})
+handle(wallet, closure: {banknot in
+    return banknot == 100})
 
 
 
