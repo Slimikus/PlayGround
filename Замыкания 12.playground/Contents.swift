@@ -103,6 +103,28 @@ var sum: (numOne: Int, numTwo: Int) -> Int = {
 }
 sum(numOne: 10, numTwo: 34)
 
+// 12.6 Захват переменных
+
+var a = 1
+var b = 2
+var closureSum: () -> Int = {
+    return a + b
+}
+
+var closureSum2: () -> Int = {
+    [a, b] in
+    return a + b
+}
+
+closureSum()
+closureSum2()
+
+a = 3
+b = 4
+closureSum()
+closureSum2()
+
+
 
 
 
