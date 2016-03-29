@@ -235,12 +235,18 @@ let resultInt = cry() + 100
 print("Задание №1")
 
 typealias Chessman = [String:(alpha:Character,num:Int)?]
-var chessmans: Chessman = ["Белый король":("B",3), "Чёрный ферзь":("E", 6), "Белая ладья":nil]
-func chessAnalizer(_:Chessmans) {
-    
+var chessmans: Chessman = ["Белый король":("B",3), "Чёрный ферзь":("E", 6), "Белая ладья":nil, "Чёрный конь":("F", 8)]
+func chessAnalizer(chessmans: Chessman) {
+    for (chass, koor) in chessmans {
+        if koor != nil {
+            print("Координаты фигуры \(chass): \(koor!)")
+        } else {
+            print("Ваша фигура \(chass) сбита")
+        }
+        
+    }
 }
-
-
+chessAnalizer(chessmans)
 
 
 
