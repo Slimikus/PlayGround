@@ -234,6 +234,11 @@ let resultInt = cry() + 100
 //Задание №1
 print("Задание №1")
 
+typealias Chessman = [String:(alpha:Character,num:Int)?]
+var chessmans: Chessman = ["Белый король":("B",3), "Чёрный ферзь":("E", 6), "Белая ладья":nil]
+func chessAnalizer(_:Chessmans) {
+    
+}
 
 
 
