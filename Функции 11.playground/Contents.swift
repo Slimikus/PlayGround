@@ -248,6 +248,13 @@ func chessAnalizer(chessmans: Chessman) {
 }
 chessAnalizer(chessmans)
 
+//Задание №2
+print("Задание №2")
+func chessEdit(inout chessmans: Chessman, _ newChess: String, _ newKoor:(alpha: Character, num: Int)?) {
+    chessmans.updateValue(newKoor, forKey: newChess)
+    print(chessmans)
+}
+chessEdit(&chessmans, "Чёрный король", ("C", 5))
 
 
 
