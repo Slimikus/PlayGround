@@ -8,28 +8,28 @@ var den: Int
 
 // Ввод данных
 skorSoed.0 = 199
-skorSoed.1 = "Mbyte"
+skorSoed.1 = "kbyte"
 skorSoed
 obyemSkach.0 = 1500
 obyemSkach.1 = "Mb"
 obyemSkach
 
 // Перевод единиц измерения в байты
-func perevodVByte(var obyem: Double, var velich: String) -> (Double, String) {
+func perevodVByte(var obyem: Double, var _ velich: String) -> (Double, String) {
     switch velich {
     case "bit":
-        print("Объём Вашего файла \(obyem) \(velich)")
+        print("Объём файла \(obyem) \(velich)")
     case "Kb":
-        print("Объём Вашего файла \(obyem) \(velich)")
+        print("Объём файла \(obyem) \(velich)")
         obyem = obyem * 1024
     case "Mb":
-        print("Объём Вашего файла \(obyem) \(velich)")
+        print("Объём файла \(obyem) \(velich)")
         obyem = obyem * 1024 * 1024
     case "Gb":
-        print("Объём Вашего файла \(obyem) \(velich)")
+        print("Объём файла \(obyem) \(velich)")
         obyem = obyem * 1024 * 1024 * 1024
     case "Tb":
-        print("Объём Вашего файла \(obyem) \(velich)")
+        print("Объём файла \(obyem) \(velich)")
         obyem = obyem * 1024 * 1024 * 1024 * 1024
     default:
         break
@@ -41,34 +41,45 @@ func perevodVByte(var obyem: Double, var velich: String) -> (Double, String) {
 // Определение времени скачивания
 func vremyaSkach (sec: Int) {
     var min: Int
+    var tMin: Int
     var tSec: Int
-    obyemSkach.0
+    var chas: Int
     skorSoed.0 = skorSoed.0 * 1024
     if obyemSkach.0 < skorSoed.0 {
         print("Время скачивания меньше секунды")
     } else {
-        if sec % 60 == 0 {
-            min = sec / 60
-            print("Время скачивания \(min)")
-        } else {
+        switch sec {
+        case  0...59: //секунды
+            print("Время скачивания \(sec) секунд(-а)(-ы)")
+        case 60...3599: //минуты
+            sec
             min = sec / 60
             tSec = min * 60
             tSec = sec - tSec
-            print("Время скачивания \(min) минут \(tSec) секунд")
-        }
-        if min % 60 == 0 {
-            
+            print("Время скачивания \(min) минут(-а)(-ы) \(tSec) секунд(-а)(-ы)")
+        case 3600...86399: //часы
+            sec
+            min = sec / 60
+            chas = min / 60
+            tMin = chas * 60
+            tMin = min - tMin
+            tSec = min * 60
+            tSec = sec - tSec
+            print("Время скачивания \(chas) час(-а)(-ов) \(tMin) минут(-а)(-ы) \(tSec) секунд(-а)(-ы)")
+        default:
+            break
         }
     }
 }
 
-obyemSkach = perevodVByte(obyemSkach.0, velich: obyemSkach.1)
+obyemSkach = perevodVByte(obyemSkach.0, obyemSkach.1)
 
 // расчёт в зависивости от единиц скорости
 switch skorSoed.1 {
     case "byte":
-        print("Скорость маленькая")
-        obyemSkach.0 = obyemSkach.0  / skorSoed.0
+        print("Скорость очень маленькая")
+        sec = Int(obyemSkach.0  / skorSoed.0)
+        vremyaSkach(sec)
     case "kbyte":
         print("Скорость соединения \(skorSoed.0) kByte/сек")
         sec = Int(obyemSkach.0 / 1024 / skorSoed.0)
