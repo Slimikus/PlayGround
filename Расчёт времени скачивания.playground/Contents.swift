@@ -10,7 +10,7 @@ var den: Int
 skorSoed.0 = 199
 skorSoed.1 = "kbyte"
 skorSoed
-obyemSkach.0 = 1500
+obyemSkach.0 = 15000
 obyemSkach.1 = "Mb"
 obyemSkach
 
@@ -46,13 +46,21 @@ func vremyaSkach (sec: Int) {
     var tMin: Int
     var tSec: Int
     var chas: Int
-    // Функция подсчёта секунд
+    // Подсчёта секунд
     func fMin(sec: Int) -> (tSec: Int, min: Int) {
-        var min = sec / 60
+        let min = sec / 60
         var tSec = min * 60
         tSec = sec - tSec
         return (tSec, min)
     }
+    // Подсчёт часов
+    func fChas(tMin: Int) -> (tMin: Int, chas: Int) {
+        let chas = min / 60
+        var tMin = chas * 60
+        tMin = min - tMin
+        return (tMin, chas)
+    }
+    
     skorSoed.0 = skorSoed.0 * 1024
     if obyemSkach.0 < skorSoed.0 {
         print("Время скачивания меньше секунды")
@@ -66,13 +74,10 @@ func vremyaSkach (sec: Int) {
             print("Время скачивания \(request.min) минут(-а)(-ы) \(request.tSec) секунд(-а)(-ы)")
         case 3600...86399: //часы
             sec
-            min = sec / 60
-            chas = min / 60
-            tMin = chas * 60
-            tMin = min - tMin
-            tSec = min * 60
-            tSec = sec - tSec
-            print("Время скачивания \(chas) час(-а)(-ов) \(tMin) минут(-а)(-ы) \(tSec) секунд(-а)(-ы)")
+            let request1 = fMin(sec)
+            min = request1.min
+            let request2 = fChas(request1.min)
+            print("Время скачивания \(request2.chas) час(-а)(-ов) \(request2.tMin) минут(-а)(-ы) \(request1.tSec) секунд(-а)(-ы)")
         default:
             break
         }
