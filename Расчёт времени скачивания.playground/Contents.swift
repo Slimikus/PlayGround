@@ -46,7 +46,7 @@ func vremyaSkach (sec: Int) {
     var tMin: Int
     var tSec: Int
     var chas: Int
-    // Подсчёта секунд
+    // Подсчёт минут
     func fMin(sec: Int) -> (tSec: Int, min: Int) {
         let min = sec / 60
         var tSec = min * 60
