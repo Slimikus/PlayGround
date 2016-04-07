@@ -7,11 +7,11 @@ var chas: Int
 var den: Int
 
 // Ввод данных
-skorSoed.0 = 199
+skorSoed.0 = 200
 skorSoed.1 = "kbyte"
 skorSoed
-obyemSkach.0 = 150000
-obyemSkach.1 = "Mb"
+obyemSkach.0 = 100
+obyemSkach.1 = "Gb"
 obyemSkach
 
 // Перевод единиц измерения в байты
@@ -38,8 +38,6 @@ func perevodVByte(var obyem: Double, var _ velich: String) -> (Double, String) {
     return (obyem, velich)
 }
 
-
-
 // Определение времени скачивания
 func vremyaSkach (sec: Int) {
     var min: Int
@@ -49,72 +47,220 @@ func vremyaSkach (sec: Int) {
     // Подсчёт минут
     func fMin(sec: Int) -> (tSec: Int, min: Int) {
         let min = sec / 60
+
+func printTime(sec: Int) {
+    var min = sec / 60
+    var chas = min / 60
+    var dni = chas / 24
+    var mes = dni / 30
+    var god = mes / 12
+    
+    let result = true
+    var printText = "Время скачивания файла "
+    var printSec = ""
+    var printMin = ""
+    var printChas = ""
+    var printDni = ""
+    var printMes = ""
+    var printGod = ""
+    let array1 = [1, 21, 31, 41, 51, 61, 71, 81, 91]
+    let array2 = [2, 3, 4, 22, 32, 42, 52, 23, 33, 43, 53, 24, 34, 44, 54, 62, 63, 64, 72, 73, 74, 82, 83, 84, 92, 93, 94]
+    
+    // Подсчёт минут
+    func tMin(sec: Int) -> Int {
         var tSec = min * 60
         tSec = sec - tSec
-        return (tSec, min)
-    }
-    // Подсчёт часов
-    func fChas(tMin: Int) -> (tMin: Int, chas: Int) {
-        let chas = min / 60
-        var tMin = chas * 60
-        tMin = min - tMin
-        return (tMin, chas)
-    }
-    // Подсчёт дней
-    func fDni(tChas: Int) -> (tChas: Int, dni: Int) {
-        let dni = chas / 24
-        var tChas = dni * 24
-        tChas = chas - tChas
-        return (tChas, dni)
+        return tSec
     }
     
-    skorSoed.0 = skorSoed.0 * 1024
-    if obyemSkach.0 < skorSoed.0 {
-        print("Время скачивания меньше секунды")
-    } else {
+    // Подсчёт часов
+    func tChas(min: Int) -> Int {
+        var tMin = chas * 60
+        tMin = min - tMin
+        return tMin
+    }
+    
+    // Подсчёт дней
+    func tDni(chas: Int) -> Int {
+        var tChas = dni * 24
+        tChas = chas - tChas
+        return tChas
+    }
+    
+    // Подсчёт месяцев
+    func tMes(dni: Int) -> Int {
+        var tDni = mes * 30
+        tDni = dni - tDni
+        return tDni
+    }
+    
+    // Подсчёт лет
+    func tGod(mes: Int) -> Int {
+        var tMes = god * 12
+        tMes = mes - tMes
+        return tMes
+    }
+    
+    // Отображение секунд
+    func fSec(sec: Int) -> String {
         switch sec {
-        case  0...59: //секунды
-            print("Время скачивания \(sec) секунд(-а)(-ы)")
-        case 60...3_599: //минуты
-            sec
-            let request = fMin(sec)
-            print("Время скачивания \(request.min) минут(-а)(-ы) \(request.tSec) секунд(-а)(-ы)")
-        case 3_600...86_399: //часы
-            sec
-            let request1 = fMin(sec)
-            min = request1.min
-            let request2 = fChas(request1.min)
-            print("Время скачивания \(request2.chas) час(-а)(-ов) \(request2.tMin) минут(-а)(-ы) \(request1.tSec) секунд(-а)(-ы)")
-        case 86400...2_073_600:
-            sec
-            let request1 = fMin(sec)
-            min = request1.min
-            let request2 = fChas(request1.min)
-            chas = request2.chas
-            let request3 = fDni(request2.chas)
-            print("Время скачивания \(request3.dni) день(дней) \(request3.tChas) час(-а)(-ов) \(request2.tMin) минут(-а)(-ы) \(request1.tSec) секунд(-а)(-ы)")
+        case 1..<60:
+            if result == array1.contains(sec) {
+                printSec = "\(sec) секунда"
+                return printSec
+            } else if result == array2.contains(sec) {
+                printSec = "\(sec) секунды"
+                return printSec
+            } else {
+                printSec = "\(sec) секунд"
+                return printSec
+            }
         default:
             break
         }
+        return printSec
+    }
+    
+    // Отбражение минут
+    func fMin(min: Int, _ sec: Int) -> (String, Int) {
+        let tSec = tMin(sec)
+        switch min {
+        case 1..<60:
+            if result == array1.contains(min) {
+                printMin = "\(min) минута "
+                return (printMin, tSec)
+            } else if result == array2.contains(min) {
+                printMin = "\(min) минуты "
+                return (printMin, tSec)
+            } else {
+                printMin = "\(min) минут "
+                return (printMin, tSec)
+            }
+        default:
+            break
+        }
+        return (printMin, tSec)
+    }
+    
+    // Отображение часов
+    func fChas(chas: Int, _ min: Int) -> (String, Int) {
+        let tMin = tChas(min)
+        switch chas {
+        case 1..<24:
+            if result == array1.contains(chas) {
+                printChas = "\(chas) час "
+                return (printChas, tMin)
+            } else if result == array2.contains(chas) {
+                printChas = "\(chas) часа "
+                return (printChas, tMin)
+            } else {
+                printChas = "\(chas) часов "
+                return (printChas, tMin)
+            }
+        default:
+            break
+        }
+        return (printChas, tMin)
+    }
+    
+    // Отображение дней
+    func fDni(dni: Int, _ chas: Int) -> (String, Int) {
+        let tChas = tDni(chas)
+        switch dni {
+        case 1..<31:
+            if result == array1.contains(dni) {
+                printDni = "\(dni) день "
+                return (printDni, tChas)
+            } else if result == array2.contains(dni) {
+                printDni = "\(dni) дня "
+                return (printDni, tChas)
+            } else {
+                printDni = "\(dni) дней "
+                return (printDni, tChas)
+            }
+        default:
+            break
+        }
+        return (printDni, tChas)
+    }
+    
+    // Отображение  месяцев
+    func fMes(mes: Int, _ dni: Int) -> (String, Int) {
+        let tDni = tMes(dni)
+        switch mes {
+        case 1..<31:
+            if result == array1.contains(mes) {
+                printMes = "\(mes) месяц "
+                return (printMes, tDni)
+            } else if result == array2.contains(mes) {
+                printMes = "\(mes) месяца "
+                return (printMes, tDni)
+            } else {
+                printMes = "\(mes) месяцев "
+                return (printMes, tDni)
+            }
+        default:
+            break
+        }
+        return (printMes, tDni)
+    }
+    
+    // Отображение  лет
+    func fGod(god: Int, _ mes: Int) -> (String, Int) {
+        let tMes = tGod(mes)
+        switch god {
+        case 1...100:
+            if result == array1.contains(god) {
+                printGod = "\(god) год "
+                return (printGod, tMes)
+            } else if result == array2.contains(god) {
+                printGod = "\(god) года "
+                return (printGod, tMes)
+            } else {
+                printGod = "\(god) лет "
+                return (printGod, tMes)
+            }
+        default:
+            break
+        }
+        return (printGod, tMes)
+    }
+    
+    // Вывод на экран до 1 секунды
+    if sec < 1 {
+        printText += "меньше секунды"
+        print(printText)
+    } else if god >= 100 {
+        print(printText + "займёт больше 100 лет!!!")
+        
+        // Вывод на экран от 1 секунды до 100 лет
+    } else {
+        let tMes = fGod(god, mes)
+        let tDni = fMes(tMes.1, dni)
+        let tChas = fDni(tDni.1, chas)
+        let tMin = fChas(tChas.1, min)
+        let tSec = fMin(tMin.1, sec)
+        fSec(tSec.1)
+        print(printText + printGod + printMes + printDni + printChas + printMin + printSec)
     }
 }
 
 obyemSkach = perevodVByte(obyemSkach.0, obyemSkach.1)
 
-// расчёт в зависивости от единиц скорости
+// расчёт в зависивости от единиц измерения скорости
 switch skorSoed.1 {
     case "byte":
         print("Скорость очень маленькая")
         sec = Int(obyemSkach.0  / skorSoed.0)
-        vremyaSkach(sec)
+        printTime(sec)
     case "kbyte":
         print("Скорость скачивания \(skorSoed.0) kByte/сек")
         sec = Int(obyemSkach.0 / 1024 / skorSoed.0)
-        vremyaSkach(sec)
+        printTime(sec)
     case "Mbyte":
         print("Скорость скачивания \(skorSoed.0) MByte/сек")
         sec = Int(obyemSkach.0 / 1024 / 1024 / skorSoed.0)
-        vremyaSkach(sec)
+        printTime(sec)
     default:
         break
 }
