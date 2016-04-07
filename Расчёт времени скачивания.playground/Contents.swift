@@ -10,43 +10,35 @@ var den: Int
 skorSoed.0 = 200
 skorSoed.1 = "kbyte"
 skorSoed
-obyemSkach.0 = 100
-obyemSkach.1 = "Gb"
+obyemSkach.0 = 400
+obyemSkach.1 = "Tb"
 obyemSkach
 
 // Перевод единиц измерения в байты
-func perevodVByte(var obyem: Double, var _ velich: String) -> (Double, String) {
+func perevodVByte(obyem: Double, _ velich: String) -> (Double, String) {
+    var tObyem = obyem
+    var tVelich = velich
     switch velich {
     case "bit":
-        print("Объём файла \(obyem) \(velich)")
+        print("Объём файла \(tObyem) \(tVelich)")
     case "Kb":
-        print("Объём файла \(obyem) \(velich)")
-        obyem = obyem * 1024
+        print("Объём файла \(tObyem) \(tVelich)")
+        tObyem = tObyem * 1024
     case "Mb":
-        print("Объём файла \(obyem) \(velich)")
-        obyem = obyem * 1024 * 1024
+        print("Объём файла \(tObyem) \(tVelich)")
+        tObyem = tObyem * 1024 * 1024
     case "Gb":
-        print("Объём файла \(obyem) \(velich)")
-        obyem = obyem * 1024 * 1024 * 1024
+        print("Объём файла \(tObyem) \(tVelich)")
+        tObyem = tObyem * 1024 * 1024 * 1024
     case "Tb":
-        print("Объём файла \(obyem) \(velich)")
-        obyem = obyem * 1024 * 1024 * 1024 * 1024
+        print("Объём файла \(obyem) \(tVelich)")
+        tObyem = tObyem * 1024 * 1024 * 1024 * 1024
     default:
         break
     }
-    velich = "byte"
-    return (obyem, velich)
+    tVelich = "byte"
+    return (tObyem, tVelich)
 }
-
-// Определение времени скачивания
-func vremyaSkach (sec: Int) {
-    var min: Int
-    var tMin: Int
-    var tSec: Int
-    var chas: Int
-    // Подсчёт минут
-    func fMin(sec: Int) -> (tSec: Int, min: Int) {
-        let min = sec / 60
 
 func printTime(sec: Int) {
     var min = sec / 60
@@ -54,7 +46,6 @@ func printTime(sec: Int) {
     var dni = chas / 24
     var mes = dni / 30
     var god = mes / 12
-    
     let result = true
     var printText = "Время скачивания файла "
     var printSec = ""
@@ -264,9 +255,3 @@ switch skorSoed.1 {
     default:
         break
 }
-
-
-
-
-
-
