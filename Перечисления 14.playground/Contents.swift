@@ -183,12 +183,36 @@ exp2.evaluate()
 
 // Задание
 
-
-
-
-
-
-
-
-
+enum ArithmeticExpression3 {
+    case Number(Int)
+    indirect case Slozh(ArithmeticExpression3, ArithmeticExpression3)
+    indirect case Vyich(ArithmeticExpression3, ArithmeticExpression3)
+    indirect case Umnozh(ArithmeticExpression3, ArithmeticExpression3)
+    indirect case Del(ArithmeticExpression3, ArithmeticExpression3)
+    indirect case Step(ArithmeticExpression3, ArithmeticExpression3)
+    func evaluate(expression: ArithmeticExpression3? = nil) -> Int {
+        let expression = (expression == nil ? self: expression)
+        switch expression! {
+        case .Number(let value):
+            return value
+        case .Slozh(let valueLeft, let valueRight):
+            return self.evaluate(valueLeft) + self.evaluate(valueRight)
+        case .Vyich(let valueLeft, let valueRight):
+            return self.evaluate(valueLeft) - self.evaluate(valueRight)
+        case .Umnozh(let valueLeft, let valueRight):
+            return self.evaluate(valueLeft) * self.evaluate(valueRight)
+        case .Del(let valueLeft, let valueRight):
+            return self.evaluate(valueLeft) / self.evaluate(valueRight)
+        case .Step(let valueLeft, let valueRight):
+            var n: Int = self.evaluate(valueLeft)
+            let b = self.evaluate(valueRight)
+            for _ in 1..<b {
+                n *= Int(self.evaluate(valueLeft))
+            }
+            return n
+        }
+    }
+}
+var expr3 = ArithmeticExpression3.Step(.Number(2), .Del(.Number(25), .Number(5)))
+expr3.evaluate()
 
