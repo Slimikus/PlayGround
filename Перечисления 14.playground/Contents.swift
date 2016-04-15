@@ -142,7 +142,46 @@ var mySmile4 = Smile4.Joy
 mySmile4.descriptionValue()
 mySmile4.descriptionRawValue()
 
+// 14.8 Рекурсивные перечисления
 
+enum ArithmeticExpression {
+    // операция сложения
+    case Addition(Int, Int)
+    // операция вычитания
+    case Substraction(Int, Int)
+    // метод подсчёта
+    func evauate() -> Int {
+        switch self {
+        case .Addition(let left, let right):
+            return left + right
+        case .Substraction(let left, let right):
+            return left - right
+        }
+    }
+}
+var expr = ArithmeticExpression.Addition(10, 14)
+expr.evauate()
+
+enum ArithmeticExpression2 {
+    case Number(Int)
+    indirect case Addition(ArithmeticExpression2, ArithmeticExpression2)
+    indirect case Subtraction(ArithmeticExpression2, ArithmeticExpression2)
+    func evaluate(expression: ArithmeticExpression2? = nil) -> Int {
+        let expression = (expression == nil ? self: expression)
+        switch expression! {
+        case .Number(let value):
+            return value
+        case .Addition(let valueLeft, let valueRight):
+            return self.evaluate(valueLeft) + self.evaluate(valueRight)
+        case .Subtraction(let valueLeft, let valueRight):
+            return self.evaluate(valueLeft) - self.evaluate(valueRight)
+        }
+    }
+}
+var exp2 = ArithmeticExpression2.Addition(.Number(20), .Subtraction(.Number(10), .Number(34)))
+exp2.evaluate()
+
+// Задание
 
 
 
