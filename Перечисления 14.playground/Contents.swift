@@ -26,6 +26,7 @@ enum CurrencyUnit3 {
 
 var roubleCurrency2: CurrencyUnit3
 roubleCurrency2 = .Rouble(countrys: ["Russia"], shortName: "RUB")
+roubleCurrency2
 
 //Вариант 1
 //страны использующие доллар
@@ -59,4 +60,48 @@ enum CurrencyUnit5 {
 
 var someVar: CurrencyUnit5.DollarCountrys
 someVar = .Australia
+
+// 14.3 Оператор SWITCH для перечислений
+// создание переменной
+var someCurrency = CurrencyUnit5.Rouble(countrys: ["Russia", "Ukrain", "Belarus"], shortName: "RUB")
+// анализ переменной
+switch someCurrency {
+case .Rouble (let countrys, let shotname):
+    print("Рубль. Страны: \(countrys), краткое наименование \(shotname)")
+case let .Euro (countrys, shotname):
+    print("Евро. Страны: \(countrys), краткое наименование \(shotname)")
+case .Dollar (let countrys, let shotname, let national):
+    print("Доллар \(national). Страны: \(countrys), краткое наименование \(shotname)")
+}
+
+// 14.4 Связанные значения членов перечисления
+
+enum Smile: String {
+    case Joy = ":)"
+    case Laugh = ":D"
+    case Sorrow = ":("
+    case Suprise = "o_O"
+}
+
+enum Planet: Int {
+    case Mercury = 1, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, Pluton = 999
+}
+
+var ven: Planet = .Venus
+ven.rawValue
+var iAmHappy = Smile.Joy
+iAmHappy.rawValue
+
+var myPlanet = Planet.init(rawValue: 3)
+var anotherPlanet = Planet.init(rawValue: 11)
+
+
+
+
+
+
+
+
+
+
 
