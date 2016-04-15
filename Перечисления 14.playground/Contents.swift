@@ -95,6 +95,17 @@ iAmHappy.rawValue
 var myPlanet = Planet.init(rawValue: 3)
 var anotherPlanet = Planet.init(rawValue: 11)
 
+// 14.5 Свойства в перечислениях
+
+enum Smile2: String {
+    case Joy = ":)"
+    case Laugh = ":D"
+    case Sorrow = ":("
+    case Suprise = "o_O"
+    var description: String {return self.rawValue}
+}
+var mySmile: Smile2 = .Sorrow
+mySmile.description
 
 
 
