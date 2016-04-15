@@ -107,6 +107,21 @@ enum Smile2: String {
 var mySmile: Smile2 = .Sorrow
 mySmile.description
 
+// 14.6 Методы в перечислениях
+enum Smile3: String {
+    case Joy = ":)"
+    case Laugh = ":D"
+    case Sorrow = ":("
+    case Suprise = "o_O"
+    // метод для вывода описания
+    func description() {
+        print("Перечисление содержит список используемых смайликов: их названия и графические обозначения")
+    }
+}
+var mySmile3 = Smile3.Joy
+mySmile3.description()
+
+
 
 
 
