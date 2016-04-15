@@ -5,6 +5,9 @@
 struct PlayerInChess {}
 var oleg: PlayerInChess
 
+// 15.2 Свойства в структурах
+
+
 
 
 
