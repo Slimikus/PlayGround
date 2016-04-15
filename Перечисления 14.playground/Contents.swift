@@ -121,6 +121,28 @@ enum Smile3: String {
 var mySmile3 = Smile3.Joy
 mySmile3.description()
 
+// 14.7 Оператор Self
+
+enum Smile4: String {
+    case Joy = ":)"
+    case Laugh = ":D"
+    case Sorrow = ":("
+    case Suprise = "o_O"
+    func description() {
+        print("Перечисление содержит список используемых смайликов: их названия и графические обозначения")
+    }
+    func descriptionValue() -> Smile4 {
+        return self
+    }
+    func descriptionRawValue() -> String {
+        return self.rawValue
+    }
+}
+var mySmile4 = Smile4.Joy
+mySmile4.descriptionValue()
+mySmile4.descriptionRawValue()
+
+
 
 
 
