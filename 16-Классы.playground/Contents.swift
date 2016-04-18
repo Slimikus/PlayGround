@@ -86,9 +86,42 @@ class Chessman4 {
 }
 var QueenBlack = Chessman4(type: .Queen, color: .Black, figure: "♛", coordinates: ("A", 6))
 
+// 16.5 Вложенные типы
 
+class Chessman5 {
+    enum ChessmanType {
+        case King
+        case Castle
+        case Bishop
+        case Pawn
+        case Knight
+        case Queen
+    }
+    enum ChessmanColor {
+        case Black
+        case White
+    }
+    let type: ChessmanType
+    let color: ChessmanColor
+    var coordinates: (String, Int)? = nil
+    let figureSymbol: Character
+    init(type: ChessmanType, color: ChessmanColor, figure: Character){
+        self.type = type
+        self.color = color
+        self.figureSymbol = figure
+    }
+    init(type: ChessmanType, color: ChessmanColor, figure: Character, coordinates: (String, Int)){
+        self.type = type
+        self.color = color
+        self.figureSymbol = figure
+        self.coordinates = (char: coordinates.0, num: coordinates.1)
+    }
+    func setCoordinates(char c: String, num n: Int) {
+        self.coordinates = (c, n)
+    }
+    func  kill() {
+        self.coordinates = nil
+    }
+}
 
-
-
-
-
+var linkToEnumType = Chessman5.ChessmanType.Bishop
