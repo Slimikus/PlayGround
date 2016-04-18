@@ -44,9 +44,27 @@ struct PlayerInChess4 {
 }
 var oleg4 = PlayerInChess4(name: "Олег")
 
+// 15.5 Методы в структурах
 
+struct PlayerInChess5 {
+    var name: String
+    var wins: UInt
+    func description() {
+        print("Игрок \(self.name) имеет \(self.wins) побед")
+    }
+}
+var oleg5 = PlayerInChess5(name: "Олег", wins: 15)
+oleg5.description()
 
-
-
-
-
+struct PlayerInChess6 {
+    var name: String
+    var wins: UInt
+    // метод, изменяющий свойство wins
+    mutating func addWins( countOfWins: UInt){
+        self.wins += countOfWins
+    }
+}
+var oleg6 = PlayerInChess6(name: "Олег", wins: 15)
+oleg6.wins
+oleg6.addWins(3)
+oleg6.wins
