@@ -35,6 +35,30 @@ class Chessman {
 }
 var kingWhite = Chessman(type: .King, color: .White, figure: "♔")
 
+// 16.3 Методы классов
+
+class Chessman3 {
+    let type: ChessmanType
+    let color: ChessmanColor
+    var coordinates: (String, Int)? = nil
+    let figureSymbol: Character
+    init(type: ChessmanType, color: ChessmanColor, figure: Character){
+        self.type = type
+        self.color = color
+        self.figureSymbol = figure
+    }
+    // метод установки координат
+    func setCoordinates(char c: String, num n: Int) {
+        self.coordinates = (c, n)
+    }
+    // метод, убивающий фигуру
+    func  kill() {
+        self.coordinates = nil
+    }
+}
+var kingWhite2 = Chessman3(type: .King, color: .White, figure: "♔")
+kingWhite2.setCoordinates(char: "E", num: 1)
+
 
 
 
