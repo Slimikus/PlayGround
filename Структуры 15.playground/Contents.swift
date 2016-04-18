@@ -24,15 +24,25 @@ var maks = PlayerInchess2()
 
 // 15.3 Структура как пространство имён
 
-struct PlayerInChass3 {
+struct PlayerInChess3 {
     var name: String
     var wins: UInt = 0
 }
-var oleg3 = PlayerInChass3(name: "Олег", wins: 0)
+var oleg3 = PlayerInChess3(name: "Олег", wins: 0)
 oleg3.name
 oleg3.wins = 20
 oleg3.wins
 
+//15.4 Собственные инициализаторы
+
+struct PlayerInChess4 {
+    var name: String
+    var wins: UInt = 0
+    init (name: String){
+        self.name = name
+    }
+}
+var oleg4 = PlayerInChess4(name: "Олег")
 
 
 
