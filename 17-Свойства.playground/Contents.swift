@@ -83,10 +83,46 @@ myNewCircle3.perimeter
 myNewCircle3.perimeter = 94.2
 myNewCircle3.radius
 
+// 17.3 Свойства типа
 
+struct SomeStructure {
+    static var storedTypeProperty = "Some volue"
+    static var computedTypeProperty: Int {
+        return 1
+    }
+}
+enum SomeEnumiration {
+    static var storedTypeProperty = "Some value"
+    static var computedTypeProperty: Int {
+        return 2
+    }
+}
+class SomeClass {
+    static var storedTypeProperty = "Some value"
+    static var computedTypeProperty: Int {
+        return 3
+    }
+    class var overrideableCoputedTypeproperty: Int {
+        return 4
+    }
+}
 
-
-
-
-
-
+struct AudioChannel {
+    static var maxVolume = 5
+    var volume: Int {
+        didSet {
+            if volume > AudioChannel.maxVolume {
+                volume = AudioChannel.maxVolume
+            }
+        }
+    }
+}
+var LeftChannel = AudioChannel(volume: 2)
+var RightChannel = AudioChannel(volume: 3)
+RightChannel.volume = 6
+RightChannel.volume
+AudioChannel.maxVolume
+AudioChannel.maxVolume = 10
+AudioChannel.maxVolume
+RightChannel.volume = 8
+RightChannel.volume
