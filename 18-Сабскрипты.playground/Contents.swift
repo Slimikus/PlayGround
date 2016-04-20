@@ -51,6 +51,9 @@ class gameDesk {
             }
             return nil
         }
+        set {
+            self.setChessman(newValue!, coordinates: (alpha, number))
+        }
     }
     func setChessman(chess: Chessman, coordinates: (String, Int)) {
         if let oldCoordinates = chess.coordinates {
@@ -66,6 +69,10 @@ game.setChessman(QueenBlack, coordinates: ("A", 3))
 game["A", 3]?.coordinates
 game["B", 2]?.coordinates
 game["A", 3]?.figureSymbol
+QueenBlack.coordinates
+game["C", 5] = QueenBlack
+QueenBlack.coordinates
+
 
 
 
