@@ -44,6 +44,14 @@ class gameDesk {
             desk[i] = [:]
         }
     }
+    subscript(alpha: String, number: Int) -> Chessman? {
+        get {
+            if let chessman = self.desk[number]![alpha] {
+                return chessman
+            }
+            return nil
+        }
+    }
     func setChessman(chess: Chessman, coordinates: (String, Int)) {
         if let oldCoordinates = chess.coordinates {
             desk[oldCoordinates.1]![oldCoordinates.0] = nil
@@ -55,5 +63,9 @@ class gameDesk {
 var game = gameDesk()
 game.setChessman(QueenBlack, coordinates: ("B", 2))
 game.setChessman(QueenBlack, coordinates: ("A", 3))
+game["A", 3]?.coordinates
+game["B", 2]?.coordinates
+game["A", 3]?.figureSymbol
+
 
 
