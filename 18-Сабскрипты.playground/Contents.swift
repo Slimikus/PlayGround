@@ -36,6 +36,7 @@ class Chessman {
     }
 }
 var QueenBlack = Chessman(type: .Queen, color: .Black, figure: "♛", coordinates: ("A", 6))
+var QueenWhite = Chessman(type: .Queen, color: .White, figure: "♕", coordinates: ("E", 1))
 
 class gameDesk {
     var desk: [Int:[String: Chessman]] = [:]
@@ -62,6 +63,25 @@ class gameDesk {
         self.desk[coordinates.1]![coordinates.0] = chess
         chess.setCoordinates(char: coordinates.0, num: coordinates.1)
     }
+    func printDesk() -> String{
+        var prin = ""
+        let alphaArr = ["A", "B", "C", "D", "E", "F", "G", "H"]
+        let numberArr = [1, 2, 3, 4, 5, 6, 7, 8]
+        alphaArr
+        for x in numberArr {
+            for y in alphaArr {
+                if game[y, x] != nil {
+                    prin = prin + String(game[y, x]!.figureSymbol) + " "
+                } else {
+                    prin = prin + "- "
+                }
+            }
+            print(prin)
+            prin = ""
+        }
+      
+    return prin
+    }
 }
 var game = gameDesk()
 game.setChessman(QueenBlack, coordinates: ("B", 2))
@@ -72,6 +92,36 @@ game["A", 3]?.figureSymbol
 QueenBlack.coordinates
 game["C", 5] = QueenBlack
 QueenBlack.coordinates
+
+// Задание 1. Непонятно, тут всё работает. UPD теперь понятно
+
+QueenBlack.coordinates
+game["C", 5]?.kill()
+game["C", 5]?.coordinates
+game["C", 5]?.figureSymbol
+game["C", 5]?.color
+game["C", 5]?.type
+QueenBlack.coordinates
+
+// Задание 2.
+
+game["E", 8] = QueenBlack
+game["E", 1] = QueenWhite
+
+QueenBlack.coordinates
+QueenBlack.figureSymbol
+
+QueenWhite.coordinates
+QueenWhite.figureSymbol
+
+game.printDesk()
+
+
+
+
+
+
+
 
 
 
