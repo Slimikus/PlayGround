@@ -14,9 +14,9 @@ class Chessman {
         case White
     }
     let type: ChessmanType
-    let color: ChessmanColor
+    var color: ChessmanColor
     var coordinates: (String, Int)? = nil
-    let figureSymbol: Character
+    var figureSymbol: Character
     init(type: ChessmanType, color: ChessmanColor, figure: Character){
         self.type = type
         self.color = color
@@ -33,6 +33,9 @@ class Chessman {
     }
     func  kill() {
         self.coordinates = nil
+        
+        self.color
+//        self.figureSymbol = ""
     }
 }
 var QueenBlack = Chessman(type: .Queen, color: .Black, figure: "♛", coordinates: ("A", 6))
@@ -54,6 +57,10 @@ class gameDesk {
         }
         set {
             self.setChessman(newValue!, coordinates: (alpha, number))
+            if self.desk[number]![alpha]!.coordinates == nil {
+                print("Nil")
+                
+            }
         }
     }
     func setChessman(chess: Chessman, coordinates: (String, Int)) {
@@ -93,14 +100,18 @@ QueenBlack.coordinates
 game["C", 5] = QueenBlack
 QueenBlack.coordinates
 
-// Задание 1. Непонятно, тут всё работает. UPD теперь понятно
+// Задание 1. Непонятно, тут всё работает. UPD теперь понятно, вроде...
 
 QueenBlack.coordinates
 game["C", 5]?.kill()
 game["C", 5]?.coordinates
+game["C", 6]?.coordinates
 game["C", 5]?.figureSymbol
+game["C", 6]?.figureSymbol
 game["C", 5]?.color
+game["C", 6]?.color
 game["C", 5]?.type
+game["C", 6]?.type
 QueenBlack.coordinates
 
 // Задание 2.
