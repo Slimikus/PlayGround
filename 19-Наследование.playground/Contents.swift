@@ -33,6 +33,18 @@ var dog2 = Dog2()
 dog2.name = "Dragon Wan Helsing"
 dog2.printName()
 
+// 19.2 Переопределение наследуемых элементов
+
+class NoisyDog: Dog {
+    override func bark() {
+        print("woof")
+        print("woof")
+        print("woof")
+    }
+}
+var badDog = NoisyDog()
+badDog.bark()
+
 
 
 
