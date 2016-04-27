@@ -32,9 +32,11 @@ class Chessman {
         self.coordinates = (c, n)
     }
     func  kill() {
+        
         self.coordinates = nil
-        print("Координаты удалены")
+        
         self.color
+       
 //        self.figureSymbol = ""
     }
 }
@@ -53,14 +55,16 @@ class gameDesk {
             if let chessman = self.desk[number]![alpha] {
                 return chessman
             }
+          
             return nil
         }
         set {
             self.setChessman(newValue!, coordinates: (alpha, number))
-            if self.desk[number]![alpha]!.coordinates! == newValue!.coordinates! {
+            print()
+            if self.desk[number]![alpha] == nil {
                 print("Nil")
-                print(game[alpha, number]!.coordinates!)
-                
+            } else {
+                print("Ne nil")
             }
         }
     }
