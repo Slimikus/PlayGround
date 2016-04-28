@@ -28,3 +28,38 @@ for thing in things {
     }
 }
 
+// 20.2 Псевдоним AnyObject
+
+class Quadruped {
+    var type = ""
+    var name = ""
+    func walk(){
+        print("walk")
+    }
+}
+class Dog: Quadruped {
+    func bark(){
+        print("woof")
+    }
+}
+class NoisyDog: Dog {
+    override func bark() {
+        for _ in 1...3 {
+            super.bark()
+        }
+    }
+}
+
+let someObjects: [AnyObject] = [Dog(), NoisyDog(), Dog()]
+
+for object in someObjects {
+    let animal = object as! Dog
+    print("This is bad Dog")
+}
+
+for object in someObjects as! [Dog] {
+    print("This is bad Dog")
+}
+
+
+
