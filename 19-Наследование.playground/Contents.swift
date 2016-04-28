@@ -68,7 +68,24 @@ class Dog3: Quadruped {
     }
 }
 
+// 19.3 Превентивный модификатор final
 
+ /*
+ final class
+ final var
+ final func
+ final subscript
+ */
+
+// 19.4 Подмена экземпляров классов
+
+var animalArray: [Quadruped] = []
+var someAnimal = Quadruped()
+var myDog = Dog2()
+var badDog4 = NoisyDog2()
+animalArray.append(someAnimal)
+animalArray.append(myDog)
+animalArray.append(badDog4)
 
 
 
