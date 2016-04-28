@@ -45,6 +45,32 @@ class NoisyDog: Dog {
 var badDog = NoisyDog()
 badDog.bark()
 
+class NoisyDog2: Dog {
+    override func bark() {
+        for _ in 1...3 {
+            super.bark()
+        }
+    }
+}
+var badDog2 = NoisyDog2()
+badDog2.bark()
+
+class Dog3: Quadruped {
+    override init() {
+        super.init()
+        self.type = "dog"
+    }
+    func bark(){
+        print("woof")
+    }
+    func printName(){
+        print(self.name)
+    }
+}
+
+
+
+
 
 
 
