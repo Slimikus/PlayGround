@@ -63,4 +63,26 @@ enum TemperatureUnit2: Character {
 let fahrenheitUnit2 = TemperatureUnit2(rawValue: "F")
 fahrenheitUnit2!.hashValue
 
+// 21.2 Деинициализаторы
+
+class SuperClass {
+    init? (isNil: Bool) {
+        if isNil == true {
+            return nil
+        } else {
+            print("Экземпляр создан")
+        }
+    }
+    deinit {
+        print("Деинициализатор суперкласса")
+    }
+}
+class SubClass: SuperClass {
+    deinit {
+        print("Деинициализатор подкласса")
+    }
+}
+var obj = SubClass(isNil: false)
+obj = nil
+
 
