@@ -81,12 +81,29 @@ class Dog3: Quadruped {
 
 var animalArray: [Quadruped] = []
 var someAnimal = Quadruped()
-var myDog = Dog2()
+var myDog = Dog()
 var badDog4 = NoisyDog2()
 animalArray.append(someAnimal)
 animalArray.append(myDog)
 animalArray.append(badDog4)
 
+// 19.5 Приведение типов
+
+for item in animalArray {
+    if item is Dog {
+        print("Yap")
+    }
+}
+
+for item in animalArray {
+    if var animal = item as? NoisyDog2 {
+        animal.bark()
+    } else if var animal = item as? Dog {
+        animal.bark()
+    } else {
+        item.walk()
+    }
+}
 
 
 
