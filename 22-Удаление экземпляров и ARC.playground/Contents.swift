@@ -83,6 +83,41 @@ if 1==1 {
     Olga.child.append(Kirill)
 }
 
+// 22.3 Автоматический подсчёт ссылок
 
+//Сильные ссылки в замыканиях
+class Human31{
+    var name = "Человек"
+    deinit{
+        print("Объект удалён")
+    }
+}
+var closure31 : (() -> ())?
+if true {
+    var human = Human31()
+    closure31 = {
+        print(human.name)
+    }
+    closure31!()
+}
+print("Программа завершена")
+
+class Human32 {
+    var name32 = "Человек 2"
+    deinit{
+        print("Объект 2 удалён")
+    }
+}
+var closure32 : (() -> ())?
+if true {
+    var human2 = Human32()
+    // изменённое замыкание
+    closure32 = {
+        [unowned human2] in
+        print(human2.name32)
+    }
+    closure32!()
+}
+print("Программа 2 завершена")
 
 
