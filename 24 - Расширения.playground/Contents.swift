@@ -14,4 +14,22 @@ print("Один дюйм - это \(oneInch) метра")
 let threeFeet = 3.ft
 print("Три фута - это \(threeFeet) метра")
 
+// 24.2 Инициализаторы в расширениях
+
+import UIKit
+// сущность "линия"
+struct Line {
+    var pointOne: (Double, Double)
+    var pointTwo: (Double, Double)
+}
+// расширения для Double
+extension Double {
+    init (line: Line){
+        self = sqrt(pow((line.pointTwo.0 - line.pointOne.0), 2) + pow((line.pointTwo.1 - line.pointOne.1), 2))
+    }
+}
+var myLine = Line(pointOne: (10,10), pointTwo: (14,10))
+var lineLength = Double(line: myLine)
+
+
 
