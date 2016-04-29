@@ -27,4 +27,16 @@ protocol RandomNumberGenerator {
     mutating func changeValue(newValue: Double)
 }
 
+// 25.3 Требуемые инициализаторы
+
+protocol Named {
+    init(name: String)
+}
+class Person2: Named {
+    var name: String
+    required init(name: String) {
+        self.name = name
+    }
+}
+
 
