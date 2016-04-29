@@ -31,5 +31,22 @@ extension Double {
 var myLine = Line(pointOne: (10,10), pointTwo: (14,10))
 var lineLength = Double(line: myLine)
 
+// 24.3 Методы в расширениях
 
+extension Int {
+    func repetitions(task: () -> ()) {
+        for _ in 0..<self {
+            task()
+        }
+    }
+}
+3.repetitions({print("Swift")})
+
+extension Int {
+    mutating func square() {
+        self = self * self
+    }
+}
+var someInt = 3
+someInt.square()
 
