@@ -35,3 +35,9 @@ if let square = man2.residence2?.room2?.square2 {
 } else {
     print("Комнаты отсутствуют")
 }
+
+// 23.2 Установка значений через опциональные цепочки
+
+man2.residence2?.room2?.square2 = 36
+man2.residence2?.room2?.square2
+
