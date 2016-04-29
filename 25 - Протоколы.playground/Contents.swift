@@ -39,4 +39,27 @@ class Person2: Named {
     }
 }
 
+// 25.5 Расширение и протоколы
+
+// Добавление соответствия типа протоколу
+
+protocol TextRepresentable {
+    func asText() -> String
+}
+extension Int: TextRepresentable {
+    func asText() -> String {
+        return String(self)
+    }
+}
+5.asText()
+
+// Расширение протоколов
+
+extension TextRepresentable {
+    func description() -> String {
+        return "Данный тип поддерживает протокол TextRepresentable"
+    }
+}
+5.description()
+
 
