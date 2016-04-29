@@ -19,4 +19,12 @@ struct Person: FullyNamed {
 }
 let John = Person(fullName: "John Wick")
 
+// 25.2 Требуемые методы
+
+protocol RandomNumberGenerator {
+    func random() -> Double
+    static func getRandomString()
+    mutating func changeValue(newValue: Double)
+}
+
 
