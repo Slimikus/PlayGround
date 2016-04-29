@@ -50,3 +50,18 @@ extension Int {
 var someInt = 3
 someInt.square()
 
+// 24.4 Сабскрипты в расширениях
+
+extension Int {
+    subscript(digitIndex: Int) -> Int {
+        var digitIndex = digitIndex
+        var decimalBase = 1
+        while digitIndex > 0 {
+            decimalBase *= 10
+            digitIndex -= 1
+        }
+        return (self / decimalBase) % 10
+    }
+}
+746381295[0]
+746381295[3]
