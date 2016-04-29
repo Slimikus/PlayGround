@@ -41,3 +41,22 @@ if let square = man2.residence2?.room2?.square2 {
 man2.residence2?.room2?.square2 = 36
 man2.residence2?.room2?.square2
 
+// 23.3 Доступ к методам через опциональные цепочки
+class Person3 {
+    var residence3: Residence3?
+}
+class Residence3 {
+    var numberOfRooms3 = 1
+    var rooom3: Room3?
+    func returnNumberOfRooms3() -> Int {
+        return numberOfRooms3
+    }
+}
+class Room3 {
+    var square3: Int = 15
+}
+var man3 = Person3()
+var residence3 = Residence3()
+man3.residence3 = residence3
+man3.residence3?.numberOfRooms3
+
