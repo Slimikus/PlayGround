@@ -83,5 +83,22 @@ protocol SubProtocol2: class, SuperProtocol {
     func someMethod()
 }
 
+// 25.8 Композиция протоколов
+
+protocol Named8 {
+    var name: String { get }
+}
+protocol Aged8 {
+    var age: Int { get }
+}
+struct Person8: Named8, Aged8 {
+    var name: String
+    var age: Int
+}
+func wishHappyBirthday(celebrator: protocol<Named8, Aged8>) {
+    print("С Днём Рождения, \(celebrator.name)! Тебе уже \(celebrator.age)!")
+}
+let birthdayPerson = Person8(name: "Джон Уик", age: 46)
+wishHappyBirthday(birthdayPerson)
 
 
