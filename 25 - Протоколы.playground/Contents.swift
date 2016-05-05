@@ -62,4 +62,21 @@ extension TextRepresentable {
 }
 5.description()
 
+// 25.6 Наследование протоколов
+
+protocol SuperProtocol {
+    var someValue: Int { get }
+}
+protocol SubProtocol: SuperProtocol {
+    func someMethod ()
+}
+struct SomeStruct: SubProtocol {
+    let someValue: Int = 10
+    func someMethod() {
+        // Тело метода
+    }
+}
+
+
+
 
