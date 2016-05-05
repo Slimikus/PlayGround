@@ -77,6 +77,11 @@ struct SomeStruct: SubProtocol {
     }
 }
 
+// 25.7 Классовые протоколы
+
+protocol SubProtocol2: class, SuperProtocol {
+    func someMethod()
+}
 
 
 
