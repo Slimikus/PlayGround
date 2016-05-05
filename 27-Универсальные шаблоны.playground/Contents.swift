@@ -66,3 +66,18 @@ struct Stack<T> {
 var stackOfInt3 = Stack(1, 2, 4, 5)
 var stackOfString3 = Stack<String>()
 
+// 27.3 Ограничение типа
+
+func findIndex<T: Equatable>(array: [T], valueToFind: T) -> Int? {
+    for (index, value) in array.enumerate() {
+        if value == valueToFind {
+            return index
+        }
+    }
+    return nil
+}
+var myArray = [3.12159, 0.1, 0.25]
+let firstIndex = findIndex(myArray, valueToFind: 0.1)
+let secondIndex = findIndex(myArray, valueToFind: 31)
+
+
