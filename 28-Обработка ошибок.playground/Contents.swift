@@ -67,7 +67,17 @@ do {
     print("Недостаточно средств. Пожалуйста, внесите ещё \(coinsNeeded) монет(ы).")
 }
 
+print("DDD")
 
+// Преобразование
 
+func someThrowingFunc() throws -> Int? {
+    // ...
+    return nil
+}
+let x = try? someThrowingFunc()
 
+// Запрет на передачу ошибки
+
+//  let photo = try! loadImage("./Resources/John Appleseed.jpg")
 
