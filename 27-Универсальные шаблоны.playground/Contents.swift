@@ -80,4 +80,45 @@ var myArray = [3.12159, 0.1, 0.25]
 let firstIndex = findIndex(myArray, valueToFind: 0.1)
 let secondIndex = findIndex(myArray, valueToFind: 31)
 
+// 27.4 Расширение универсального типа
 
+extension Stack {
+    var topItem: T? {
+        return items.isEmpty ? nil : items[items.count - 1]
+    }
+}
+let topItems = Stack(1, 3, 5, 7, 9)
+topItems.topItem
+
+// 27.5 Связанные типы
+
+protocol Container {
+    associatedtype ItemTupe
+    mutating func append(item: ItemTupe)
+    var count: Int {get }
+    subscript(i: Int) -> ItemTupe { get }
+}
+
+struct Stack2<T>: Container {
+    typealias ItemType = T
+    var items = [T]()
+    var count: Int {
+        return items.count
+    }
+    init(){}
+    init(_ elements: T...){
+        self.items = elements
+    }
+    subscript(i: Int) -> T {
+        return items[i]
+    }
+    mutating func push(item: T) {
+        items.append(item)
+    }
+    mutating func pop() -> T {
+        return items.removeLast()
+    }
+    mutating func append(item: T) {
+        items.append(item)
+    }
+}
