@@ -81,3 +81,19 @@ let x = try? someThrowingFunc()
 
 //  let photo = try! loadImage("./Resources/John Appleseed.jpg")
 
+
+// 28.3 Отложенные действия по очистке
+
+/*
+func processFile(filename: String) throws {
+    if exits(filename) {
+        let file = open(filename)
+        defer {
+            close(file)
+        }
+        while let line = try file.readline() {
+            // работа с файлом
+        }
+    }
+}
+*/
