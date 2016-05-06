@@ -49,3 +49,13 @@ let anotherTwothree = Vector2D(x: 2.0, y: 3.0)
 if twoThree == anotherTwothree {
     print("Эти векторы эквивалентны.")
 }
+
+// 29.2 Пользовательские операторы
+
+prefix operator +++ {}
+prefix func +++ (inout vector: Vector2D) -> Vector2D {
+    vector += vector
+    return vector
+}
+var toBeDoubled = Vector2D(x: 1.0, y: 4.0)
+let afterDoubling = +++toBeDoubled
