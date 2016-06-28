@@ -3,7 +3,7 @@
 import UIKit
 
 let R = 1
-let L = 4
+let L = 2
 print("R = \(R), L = \(L)")
 
 var arrInt: [Int] = []
@@ -18,13 +18,16 @@ for i in 0...L - 1 {
     for var j in 0...arrInt.count - 1 {
     print("arrInt.count = \(arrInt.count)")
     print("arrTemp = \(arrTemp)")
-        if arrTemp.count <= 1 {
+        if arrTemp.count <= 1 && L != 1 {
             print("i (arrTemp.count <= 1 ) = \(i)")
             print("j (arrTemp.count <= 1 ) = \(j)")
             print(arrTemp)
             arrTemp.append(R)
             
             arrInt = arrTemp
+        } else if L == 1 {
+            var rez = arrTemp.count
+            print("Ответ: \(arrTemp[rez - 1])")
         } else {
             j = j + 1
             print("i = \(i)")
@@ -36,7 +39,7 @@ for i in 0...L - 1 {
                 arrTemp[j - 1] = x
             } else {
                 x = 1
-                arrTemp[j - 1] = x
+                arrTemp.insert(x, atIndex: (j - 1))
                 
             }
             x = 1
