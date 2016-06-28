@@ -2,7 +2,9 @@
 
 import UIKit
 
-var array1 = [1, 2, 1, 2, 2]
+var array1 = [2]
+var array2: [Int] = []
+
 func arraySchet(array: [Int]) -> [Int] {
     var arrTemp = [0]
     var array1Temp: [Int] = []
@@ -29,5 +31,5 @@ func arraySchet(array: [Int]) -> [Int] {
     return array1Temp
 }
 
-//print(schet)
-print(arraySchet(array1))
+array2 = arraySchet(array1)
+print(array2)
