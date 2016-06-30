@@ -10,14 +10,15 @@ var N = arrDEFIB.count
 
 print("------------------")
 for i in 0...arrDEFIB.count - 1 {
-    DEFIB = arrDEFIB[i]
+    DEFIB = DEFIB + arrDEFIB[i]
     print(DEFIB)
 }
 print("------------------")
 
 var arrString: [String] = []
-var arrAllString: [[String]] = []
+var arrAllString: [[String]] = [[]]
 var tempString = ""
+var tempI = 0
 let ss = "."
 var sLON = ""
 var sLAT = ""
@@ -29,65 +30,74 @@ for s in LON.characters {
     }
 }
 for s in LAT.characters {
-        if s == "," {
-            sLAT = sLAT + ss
-        } else {
-            sLAT = sLAT + String(s)
+    if s == "," {
+        sLAT = sLAT + ss
+    } else {
+        sLAT = sLAT + String(s)
     }
 }
-    
+
 var dLON: Double = Double(sLON)!
 var dLAT: Double = Double(sLAT)!
+var x, y, d: Double
+var minD: Double = 99999.0
 
 if N > 0 {
     for i in 0...(N-1) {
-        //print("i в начале= \(i)")
-        DEFIB = arrDEFIB[i]
-        print("DEFIB= \(DEFIB)")
+        //debugPrint("i в начале= \(i)", toStream: &errStream)
+        //let DEFIB = readLine()!
+        //debugPrint("DEFIB= \(DEFIB)", toStream: &errStream)
         tempString = ""
-        for var s in DEFIB.characters {
+        for s in DEFIB.characters {
             if s != ";" && s != "," {
                 tempString = tempString + String(s)
             } else if s == "," {
                 
-                tempString = tempString + ss
-            
+                tempString = tempString + String(ss)
             } else {
-                //print("tempString= \(tempString)")
+                //debugPrint("tempString= \(tempString)", toStream: &errStream)
                 arrString.append(tempString)
                 tempString = ""
+                
             }
             
         }
-        //print("tempString= \(tempString)")
+        //debugPrint("tempString= \(tempString)", toStream: &errStream)
         arrString.append(tempString)
-        print("arrString= \(arrString)")
+        //debugPrint("arrString= \(arrString)", toStream: &errStream)
+        //
         arrAllString.append(arrString)
         arrString.removeAll()
         
-        
-        //print("arrAllString = \(arrAllString)")
-        //print("i в конце= \(i)")
-        //debugPrint("arrString= \(arrString)", toStream: &errStream)
-        
     }
 }
-var x, y, d: Double
-var minD: Double = 99999.0
+arrAllString.removeFirst()
 
-for i in 0...N-1 {
-    //print("arrAllString = \(arrAllString[i][4])")
+for i in 0...N - 1 {
+    //debugPrint("arrAllString[\(i)] = \(arrAllString[i][4])", toStream: &errStream)
     x = (dLON - Double(arrAllString[i][4])!) * cos((Double(arrAllString[i][5])! + dLAT) / 2)
     y = (dLAT - Double(arrAllString[i][5])!)
     d = sqrt(pow(x, 2) + pow(y, 2)) * 6371
     if minD > d {
         minD = d
-        print(arrAllString[i][1])
+        tempI = i
     }
     print("x=\(x) y=\(y) d=\(d) minD=\(minD)")
 }
+print(arrAllString[tempI][1])
+print(" ")
+var arrInt1 = [["1", "2", "3"], ["1", "2", "3"], ["1", "2", "3"]]
+var arrInt2: [String] = []
+print(arrInt1)
+for j in 0...arrInt1.count-1 {
+    var str = ""
+    for i in 0...arrInt1[j].count - 1 {
+        str = str + String(arrInt1[i][j])
 
-print("dLON=\(dLON) dLAT=\(dLAT) N=\(N)")
+    }
+    arrInt2.append(str)
+    print(arrInt2)
+}
 
 
 
