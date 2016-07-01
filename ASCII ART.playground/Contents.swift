@@ -4,14 +4,14 @@ import UIKit
 
 let L = 4
 let H = 5
-let T = "S"
+let T = "E"
 
 var str = ""
 var arrIntASCII: [Int] = []
-let arrA = [" #  ","# # ", "### ", "# # ", "# # "]
+let arrA = [" #  ","# # ","### ","# # ","# # "]
 let arrE = ["### ","#   ","##  ","#   ","### "]
 let arrH = ["# # ","# # ","### ","# # ","# # "]
-let arrM = ["# # ","### ", "### ", "# # ", "# # "]
+let arrM = ["# # ","### ","### ","# # ","# # "]
 let arrN = ["### ","# # ","# # ","# # ","# # "]
 let arrT = ["### "," #  "," #  "," #  "," #  "]
 let dict = [65: arrA, 69: arrE, 72: arrH, 77: arrM, 78: arrN, 84: arrT]
@@ -32,14 +32,11 @@ print("Массив arrIntASCII: \(arrIntASCII[0])")//, toStream: &errStream)
 for i in 0...arrIntASCII.count-1 {
     var temp = dict[arrIntASCII[i]]!
     print(temp)//, toStream: &errStream)
-    arrAnswer.append(String(temp))
+    arrAnswer.append(dict[arrIntASCII[i]]!)
 }
+print(arrAnswer)//, toStream: &errStream)
 
-
-
-
-
-
+print(" ")
 var arrInt1 = [["1", "2", "3"], ["1", "2", "3"], ["1", "2", "3"]]
 var arrInt2: [String] = []
 print(arrInt1)
