@@ -4,9 +4,11 @@ import UIKit
 
 let arrDEFIB: [String] = ["1;Maison de la Prevention Sante;6 rue Maguelone 340000 Montpellier;;3,87952263361082;43,6071285339217", "2;Hotel de Ville;1 place Georges Freche 34267 Montpellier;;3,89652239197876;43,5987299452849", "3;Zoo de Lunaret;50 avenue Agropolis 34090 Mtp;;3,87388031141133;43,6395872778854"]
 var DEFIB = ""
-let LON = "3,879483"
+var LON = "3,879483"
 let LAT = "43,608177"
 var N = arrDEFIB.count
+var pp = LON.endIndex
+//var yyy = LON.removeRange(pp)
 
 print("------------------")
 for i in 0...arrDEFIB.count - 1 {
