@@ -26,9 +26,9 @@ var sTemp = ""
 
 for i in 0...arrNodeT.count - 1 {
     //var x = 0
-    print("i= \(i)")
+    
     for s in arrNodeT[i].characters {
-        print("s= \(s)")
+        //print("s= \(s)")
         if s == "0" {
             arrNodeT1.append(1)
         } else {
@@ -42,9 +42,20 @@ for i in 0...arrNodeT.count - 1 {
 arrNodeT2
 for i in 0...arrNodeT2.count - 1 {
     for j in 0...arrNodeT2[i].count - 1 {
-        print(arrNodeT2[i][j])
+        if arrNodeT2[i][j] == 1 {
+            print("i= \(i)")
+            print("j= \(j)")
+            sTemp = sTemp + String(i) + " " + String(j) + " "
+            if arrNodeT2[i][j + 1] == 1 {
+                
+            }
+
+        }
+        print(sTemp)
+        sTemp = ""
     }
 }
+
 //debugPrint("arrNodeT2= \(arrNodeT2)", toStream: &errStream)
 
 //for i in 0...arrNodeT2.count - 1 {
