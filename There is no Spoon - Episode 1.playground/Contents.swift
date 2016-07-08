@@ -3,15 +3,15 @@
 import UIKit
 
 //let width = Int(readLine()!)! // the number of cells on the X axis
-let width = 2
+let width = 3
 //let height = Int(readLine()!)! // the number of cells on the Y axis
 let height = 2
 //debugPrint("width= \(width), height= \(height)", toStream: &errStream)
 
 //var arrNodeT: [String] = []
-var arrNodeT = ["00", "0."]
+var arrNodeT = ["0.0", "0.."]
 var arrNodeT1: [Int] = []
-var arrNodeT2: [[Int]] = []
+var arrNodeT2 = [[Int]] (count: height + 1, repeatedValue: [Int](count: width + 1, repeatedValue: 0))
 
 //if height > 0 {
 //    for i in 0...(height-1) {
@@ -23,33 +23,44 @@ var arrNodeT2: [[Int]] = []
 
 //debugPrint("arrNodeT= \(arrNodeT)", toStream: &errStream)
 var sTemp = ""
+var jTemp = 0, iTemp = 0
+var prov = true
 
 for i in 0...arrNodeT.count - 1 {
-    //var x = 0
-    
     for s in arrNodeT[i].characters {
-        //print("s= \(s)")
         if s == "0" {
-            arrNodeT1.append(1)
+            // debugPrint("jTemp= \(jTemp)", toStream: &errStream)
+            arrNodeT2[i][jTemp] = 1
+            
         } else {
-            arrNodeT1.append(0)
+            //debugPrint("jTemp= \(jTemp)", toStream: &errStream)
+            arrNodeT2[i][jTemp] = 0
         }
-        
+        jTemp += 1
     }
-    arrNodeT2.append(arrNodeT1)
+    jTemp = 0
     arrNodeT1.removeAll()
 }
-arrNodeT2
-for i in 0...arrNodeT2.count - 1 {
-    for j in 0...arrNodeT2[i].count - 1 {
-        if arrNodeT2[i][j] == 1 {
-            print("i= \(i)")
-            print("j= \(j)")
-            sTemp = sTemp + String(i) + " " + String(j) + " "
-            if arrNodeT2[i][j + 1] == 1 {
-                
-            }
 
+for i in 0...arrNodeT2.count - 1 {
+    print(arrNodeT2[i])
+}
+print(" ")
+iTemp
+jTemp
+for i in 0...arrNodeT2.count - 2 {
+    for j in 0...arrNodeT2[i].count - 2 {
+        if arrNodeT2[i][j] == 1 {
+            sTemp = sTemp + String(j) + " " + String(i) + " "
+            iTemp += i + 1
+            print("iTemp= \(iTemp)")
+            jTemp += 1
+            for k in i...arrNodeT2
+            arrNodeT2[iTemp][j]
+//            while arrNodeT2[iTemp][j] != 1 {
+//                iTemp += 1
+//            }
+            
         }
         print(sTemp)
         sTemp = ""
