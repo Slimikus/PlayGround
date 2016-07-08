@@ -3,8 +3,8 @@
 import UIKit
 // Нахождение кротчайшего пути. Метод волны
 
-let lenghtMap = 10
-let widhtMap = 8
+let lenghtMap = 3
+let widhtMap = 3
 
 func Wave(xBegin: Int, _ yBegin: Int, _ xEnd: Int, _ yEnd: Int) {
     var k = 1
@@ -15,7 +15,7 @@ func Wave(xBegin: Int, _ yBegin: Int, _ xEnd: Int, _ yEnd: Int) {
         flag = false
         for x in 0...lenghtMap - 1 {
             for y in 0...widhtMap - 1 {
-                    print(map[x][y], x, y)
+                    //print(map[x][y], x, y)
                     if map[x][y] == k {
                         if map[x + 1][y] == 0 {
                             map[x + 1][y] = k + 1
@@ -42,7 +42,7 @@ func Wave(xBegin: Int, _ yBegin: Int, _ xEnd: Int, _ yEnd: Int) {
                     }
                 }
         }
-        print(map)
+        //print(map)
     }
     
 }
@@ -51,7 +51,7 @@ func Track(xEnd: Int, eEnd: Int) {
 }
 
 
-Wave(1, 1, 3, 4)
+//Wave(1, 1, 3, 4)
 var arr: [[Int]] = [[1, 2], [3, 4]]
 arr[1][1]
 
