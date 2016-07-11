@@ -24,7 +24,7 @@ var arrNodeT2 = [[Int]] (count: height + 1, repeatedValue: [Int](count: width + 
 //debugPrint("arrNodeT= \(arrNodeT)", toStream: &errStream)
 var sTemp = ""
 var jTemp = 0, iTemp = 0
-var prov = true
+
 
 for i in 0...arrNodeT.count - 1 {
     for s in arrNodeT[i].characters {
@@ -41,30 +41,48 @@ for i in 0...arrNodeT.count - 1 {
     jTemp = 0
     arrNodeT1.removeAll()
 }
+//debugPrint("arrNodeT2= \(arrNodeT2)", toStream: &errStream)
+//var gBool = false, vBool = false
 
 for i in 0...arrNodeT2.count - 1 {
-    print(arrNodeT2[i])
-}
-print(" ")
-iTemp
-jTemp
-for i in 0...arrNodeT2.count - 2 {
-    for j in 0...arrNodeT2[i].count - 2 {
+    for j in 0...arrNodeT2[i].count - 1 {
         if arrNodeT2[i][j] == 1 {
+            var gBool = false, iTemp = i
+            var vBool = false, jTemp = j
             sTemp = sTemp + String(j) + " " + String(i) + " "
-            iTemp += i + 1
-            print("iTemp= \(iTemp)")
-            jTemp += 1
-            for k in i...arrNodeT2
-            arrNodeT2[iTemp][j]
-//            while arrNodeT2[iTemp][j] != 1 {
-//                iTemp += 1
-//            }
-            
+            for g in jTemp + 1...arrNodeT2[iTemp].count - 1 {
+                if arrNodeT2[iTemp][g] == 1 {
+                    //debugPrint("g = arrNodeT2[\(g)][\(iTemp)]= \(arrNodeT2[iTemp][g])", toStream: &errStream)
+                    sTemp = sTemp + String(g) + " " + String(iTemp) + " "
+                    gBool = true
+                    break
+                }
+                
+            }
+            if gBool == false {
+                sTemp = sTemp + "-1 -1 "
+                //break
+            }
+            for v in iTemp+1...arrNodeT2.count-1{ // поиск следующего такого же элемента дальше от найденого элемента по вертикали
+                if arrNodeT2[v][j] == 1 {
+                    //debugPrint("v = arrNodeT2[\(j)][\(v)]= \(arrNodeT2[v][j])", toStream: &errStream)
+                    sTemp = sTemp + String(j) + " " + String(v) + " "
+                    vBool = true
+                    break
+                }
+                
+            }
+            if vBool == false {
+                sTemp = sTemp + "-1 -1 "
+                // break
+            }
+            //debugPrint("sTemp= \(sTemp)", toStream: &errStream)
+            print(sTemp)
+            sTemp = ""
         }
-        print(sTemp)
-        sTemp = ""
+        
     }
+    
 }
 
 //debugPrint("arrNodeT2= \(arrNodeT2)", toStream: &errStream)
